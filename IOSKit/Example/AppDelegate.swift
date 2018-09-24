@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  IOSKit
+//  SwiftyKit
 //
-//  Created by javar on 2018/9/24.
+//  Created by javar on 2018/9/21.
 //  Copyright © 2018年 da0ke. All rights reserved.
 //
 
@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds);
+        let rootCtrl = RootNavCtrl();
+        self.window?.rootViewController = rootCtrl;
+        self.window?.makeKeyAndVisible();
+        
         return true
     }
 
