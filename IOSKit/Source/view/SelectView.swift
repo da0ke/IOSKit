@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class SelectView : UIView {
+public class SelectView : UIView {
     
     private var isFirstLayout = true;
     
@@ -17,17 +17,17 @@ class SelectView : UIView {
     private var _image:UIImageView!;
     private var _hint:UILabel!;
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame);
         commonInit();
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
         commonInit();
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews();
         
         if isFirstLayout { //保证只初始化布局一次

@@ -18,7 +18,7 @@ public typealias Parameters = [String: Any]
 
 public class NetUtils {
     
-    class func request(_ type : HttpMethod, URLString : String, parameters : [String : Any]? = nil, successed :  @escaping (_ result : Any) -> (),failed:@escaping (_ error:Error) -> ()) {
+    public static func request(_ type : HttpMethod, URLString : String, parameters : [String : Any]? = nil, successed :  @escaping (_ result : Any) -> (),failed:@escaping (_ error:Error) -> ()) {
         
         // 1.获取类型
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
@@ -37,7 +37,7 @@ public class NetUtils {
         }
     }
     
-    class func request(_ type : HttpMethod, URLString : String, parameters : [String : Any]? = nil, successed :  @escaping (_ result : Any) -> ()) {
+    public static func request(_ type : HttpMethod, URLString : String, parameters : [String : Any]? = nil, successed :  @escaping (_ result : Any) -> ()) {
         
         // 1.获取类型
         let method = type == .get ? HTTPMethod.get : HTTPMethod.post
