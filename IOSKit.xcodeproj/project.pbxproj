@@ -23,6 +23,7 @@
 		2B5CD31B2158657A0094EE8B /* StatusLayoutCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5CD3152158657A0094EE8B /* StatusLayoutCtrl.swift */; };
 		2B5CD31C2158657A0094EE8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5CD3162158657A0094EE8B /* ViewController.swift */; };
 		2B5CD31E215865AC0094EE8B /* IOSKit.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B5CD31D215865AC0094EE8B /* IOSKit.xcassets */; };
+		2B5CD3202158745E0094EE8B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 2B5CD31F2158745E0094EE8B /* LICENSE */; };
 		C7BE9C777AD11E10CD307614 /* Pods_IOSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 475FD2208B92D149A695C5C0 /* Pods_IOSKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +46,7 @@
 		2B5CD3152158657A0094EE8B /* StatusLayoutCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusLayoutCtrl.swift; sourceTree = "<group>"; };
 		2B5CD3162158657A0094EE8B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2B5CD31D215865AC0094EE8B /* IOSKit.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = IOSKit.xcassets; sourceTree = "<group>"; };
+		2B5CD31F2158745E0094EE8B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		450286FB4A29F080B891C027 /* Pods-IOSKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSKit.release.xcconfig"; path = "Target Support Files/Pods-IOSKit/Pods-IOSKit.release.xcconfig"; sourceTree = "<group>"; };
 		475FD2208B92D149A695C5C0 /* Pods_IOSKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IOSKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5865913667EC3D3FB4AC106 /* Pods-IOSKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IOSKit.debug.xcconfig"; path = "Target Support Files/Pods-IOSKit/Pods-IOSKit.debug.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 		2B5CD2DE215863CC0094EE8B = {
 			isa = PBXGroup;
 			children = (
+				2B5CD31F2158745E0094EE8B /* LICENSE */,
 				2B5CD2E9215863CC0094EE8B /* IOSKit */,
 				2B5CD2E8215863CC0094EE8B /* Products */,
 				70A2DE1D07F6F73630650423 /* Pods */,
@@ -221,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5CD3202158745E0094EE8B /* LICENSE in Resources */,
 				2B5CD31E215865AC0094EE8B /* IOSKit.xcassets in Resources */,
 				2B5CD2F2215863CF0094EE8B /* Assets.xcassets in Resources */,
 			);
