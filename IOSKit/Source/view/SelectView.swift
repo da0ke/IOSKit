@@ -67,7 +67,10 @@ public class SelectView : UIView {
         _title.textColor = ColorUtils.c333;
         
         _image = LayoutUtils.addImageView(parent: self);
-        _image.image = UIImage(named: "select_down");
+        
+        let bundlePath = Bundle.main.path(forResource: "Frameworks/IOSKit.framework/IOSKit", ofType: "bundle");
+        let bundle = Bundle(path: bundlePath!);
+        _image.image = UIImage(named: "select_down", in: bundle, compatibleWith: nil);
         
         _hint = LayoutUtils.addLabel(parent: self);
         _hint.font = UIFont.systemFont(ofSize: 14);
