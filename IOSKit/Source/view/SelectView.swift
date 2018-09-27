@@ -68,18 +68,7 @@ public class SelectView : UIView {
         
         _image = LayoutUtils.addImageView(parent: self);
         
-        
-        let path1 = Bundle.init(for: SelectView.self).bundlePath;
-        print("path1 = \(path1)");
-        
-        let path2 = Bundle(for: SelectView.self).path(forResource: "IOSKit", ofType: "bundle");
-        print("path2 = \(path2 ?? "")");
-        
-        let path3 = Bundle(for: SelectView.self).path(forResource: "../IOSKit", ofType: "bundle");
-        print("path3 = \(path3 ?? "")");
-        
-        let bundlePath = Bundle.main.path(forResource: "Frameworks/IOSKit.framework/IOSKit", ofType: "bundle");
-        print("bundlePath = \(bundlePath ?? "")");
+        let bundlePath = Bundle(for: SelectView.self).path(forResource: "IOSKit", ofType: "bundle");
         let bundle = Bundle(path: bundlePath!);
         _image.image = UIImage(named: "select_down", in: bundle, compatibleWith: nil);
         
