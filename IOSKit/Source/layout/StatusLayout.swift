@@ -53,7 +53,7 @@ public class StatusLayout {
         let loading_progress = LayoutUtils.addActivityIndicatorView(parent: loadingView);
         loading_progress.centerX(c: 0).centerY(c: 0).build();
         
-        loading_progress.activityIndicatorViewStyle = .whiteLarge;
+        loading_progress.style = .whiteLarge;
         loading_progress.color = UIColor.black;
         loading_progress.startAnimating();
     }

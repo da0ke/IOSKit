@@ -55,7 +55,7 @@ public class LayoutUtils {
         return addButton(parent: parent, type: .system);
     }
     
-    public static func addButton(parent:UIView,type:UIButtonType) -> UIButton {
+    public static func addButton(parent:UIView,type:UIButton.ButtonType) -> UIButton {
         let view = UIButton(type: type);
         parent.addSubview(view);
         view.translatesAutoresizingMaskIntoConstraints = false;

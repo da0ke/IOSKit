@@ -44,13 +44,13 @@ extension UIView {
         return self;
     }
     
-    public func top(relatedBy:NSLayoutRelation,c:CGFloat) -> Self {
+    public func top(relatedBy:NSLayoutConstraint.Relation,c:CGFloat) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .top, relatedBy: relatedBy, toItem: superview, attribute: .top, multiplier: 1, constant: c);
         superview?.addConstraint(con);
         return self;
     }
     
-    public func top(relatedBy:NSLayoutRelation,v:UIView,c:CGFloat) -> Self {
+    public func top(relatedBy:NSLayoutConstraint.Relation,v:UIView,c:CGFloat) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .top, relatedBy: relatedBy, toItem: v, attribute: .bottom, multiplier: 1, constant: c);
         superview?.addConstraint(con);
         return self;
@@ -81,7 +81,7 @@ extension UIView {
         return self;
     }
     
-    public func bottom(relatedBy:NSLayoutRelation,c:CGFloat) -> Self {
+    public func bottom(relatedBy:NSLayoutConstraint.Relation,c:CGFloat) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: relatedBy, toItem: superview, attribute: .bottom, multiplier: 1, constant: c);
         superview?.addConstraint(con);
         return self;
@@ -107,7 +107,7 @@ extension UIView {
         return self;
     }
     
-    public func leading(relatedBy:NSLayoutRelation, v:UIView, c:CGFloat) -> Self {
+    public func leading(relatedBy:NSLayoutConstraint.Relation, v:UIView, c:CGFloat) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .leading, relatedBy: relatedBy, toItem: v, attribute: .trailing, multiplier: 1, constant: c);
         superview?.addConstraint(con);
         return self;
@@ -132,13 +132,13 @@ extension UIView {
         return self;
     }
     
-    public func trailing(relatedBy:NSLayoutRelation,c:CGFloat) -> Self {
+    public func trailing(relatedBy:NSLayoutConstraint.Relation,c:CGFloat) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: relatedBy, toItem: superview, attribute: .trailing, multiplier: 1, constant: c);
         superview?.addConstraint(con);
         return self;
     }
     
-    public func trailing(relatedBy:NSLayoutRelation, v:UIView, c:CGFloat) -> Self {
+    public func trailing(relatedBy:NSLayoutConstraint.Relation, v:UIView, c:CGFloat) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .trailing, relatedBy: relatedBy, toItem: v, attribute: .leading, multiplier: 1, constant: c);
         superview?.addConstraint(con);
         return self;
@@ -198,7 +198,7 @@ extension UIView {
         return self;
     }
     
-    public func width(relatedBy:NSLayoutRelation, c:CGFloat) -> Self {
+    public func width(relatedBy:NSLayoutConstraint.Relation, c:CGFloat) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .width, relatedBy: relatedBy, toItem: .none, attribute: .width, multiplier: 1, constant: c);
         self.addConstraint(con);
         return self;
@@ -228,13 +228,13 @@ extension UIView {
         return self;
     }
     
-    public func height(v:UIView, attr:NSLayoutAttribute) -> Self {
+    public func height(v:UIView, attr:NSLayoutConstraint.Attribute) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .height, relatedBy: .equal, toItem: v, attribute: attr, multiplier: 1, constant: 0);
         superview?.addConstraint(con);
         return self;
     }
     
-    public func height(relatedBy:NSLayoutRelation, c:CGFloat) -> Self {
+    public func height(relatedBy:NSLayoutConstraint.Relation, c:CGFloat) -> Self {
         let con = NSLayoutConstraint(item: self, attribute: .height, relatedBy: relatedBy, toItem: .none, attribute: .height, multiplier: 1, constant: c);
         self.addConstraint(con);
         return self;

@@ -6,6 +6,6 @@ target 'IOSKit' do
   use_frameworks!
 
   # Pods for IOSKit
-pod 'Alamofire', '~> 4.7'
+pod 'Alamofire', '4.7.3'
 
 end
