@@ -11,6 +11,7 @@ import UIKit
 
 public class ColorUtils {
     
+    
     public static let c333 = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1);
     public static let c444 = UIColor(red: 68/255, green: 68/255, blue: 68/255, alpha: 1);
     public static let c666 = UIColor(red: 102/255, green: 102/255, blue: 102/255, alpha: 1);
@@ -20,6 +21,9 @@ public class ColorUtils {
     public static let cAAA = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1);
     public static let cCCC = UIColor(red: 204/255, green: 204/255, blue: 204/255, alpha: 1);
     public static let cEEE = UIColor(red: 238/255, green: 238/255, blue: 238/255, alpha: 1);
+    public static let c01AAED = UIColor(red: 1/255, green: 170/255, blue: 237/255, alpha: 1);
+    public static let c2287FF = UIColor(red: 34/255, green: 135/255, blue: 255/255, alpha: 1);
+    public static let c343434 = UIColor(red: 52/255, green: 52/255, blue: 52/255, alpha: 1);
     public static let c42BEFF = UIColor(red: 66/255, green: 190/255, blue: 255/255, alpha: 1);
     public static let cE1E1E1 = UIColor(red: 225/255, green: 225/255, blue: 225/255, alpha: 1);
     public static let c228B22 = UIColor(red: 34/255, green: 139/255, blue: 34/255, alpha: 1);
@@ -36,5 +40,4 @@ public class ColorUtils {
     public static let cFF4500 = UIColor(red: 255/255, green: 69/255, blue: 0/255, alpha: 1);
     public static let cFF552E = UIColor(red: 255/255, green: 85/255, blue: 46/255, alpha: 1);
     public static let cFF6C16 = UIColor(red: 255/255, green: 108/255, blue: 22/255, alpha: 1);
-    
 }

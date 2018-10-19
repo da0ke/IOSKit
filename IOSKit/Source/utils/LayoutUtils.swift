@@ -118,6 +118,87 @@ public class LayoutUtils {
         return rootView;
     }
     
+    /* ------------------  nav start  ------------------  */
     
+    private static let backColor_default = ColorUtils.c343434;
+    
+    public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, title:String) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        navItem.leftBarButtonItem = createBack(color: backColor_default, target: target, action: leftAction);
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, title:String, right:String, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        navItem.leftBarButtonItem = createBack(color: backColor_default, target: target, action: leftAction);
+        navItem.rightBarButtonItem = createBarButtonItem(text: right, color: UIColor.darkGray, target: target, action: rightAction);
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, title:String, right:UIImage, rightColor:UIColor, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        navItem.leftBarButtonItem = createBack(color: backColor_default, target: target, action: leftAction);
+        navItem.rightBarButtonItem = createBarButtonItem(image: right, color: rightColor, target: target, action: rightAction);
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    public static func layout_nav(_parent:UIView, bgColor:UIColor, target:Any?, leftAction:Selector?, title:String) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        navBar.barTintColor = bgColor;
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white];
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        navItem.leftBarButtonItem = createBack(color: UIColor.white, target: target, action: leftAction);
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    
+    private static func createBack(color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem  {
+        return createBarButtonItem(image: BundleUtils.getImage(name: "nav_back")!, color: color, target: target, action: action);
+    }
+    
+    private static func createNavBar(_parent:UIView) -> UINavigationBar {
+        let navBar = addNavBar(parent: _parent);
+        navBar.top(c: 0).leading(c: 0).trailing(c: 0).height(c: 44).build();
+        navBar.barTintColor = UIColor.white;
+        
+        return navBar;
+    }
+    
+    private static func createBarButtonItem(image:UIImage, color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem {
+        let barButtonItem = UIBarButtonItem(image: image.withRenderingMode(.alwaysTemplate), style: .plain, target: target, action: action);
+        barButtonItem.tintColor = color;
+        return barButtonItem;
+    }
+    
+    private static func createBarButtonItem(text:String, color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem {
+        let barButtonItem = UIBarButtonItem(title: text, style: .plain, target: target, action: action);
+        barButtonItem.tintColor = color;
+        return barButtonItem;
+    }
+    
+    /* ------------------  nav end  ------------------  */
 
 }

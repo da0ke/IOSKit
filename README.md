@@ -1,4 +1,16 @@
-# IOSKit
+# IOSKit 简介
+IOSKit 是一个ios开发工具库
+
+## CocoaPods
+```
+platform :ios, '8.0'
+use_frameworks!
+
+target 'MyApp' do
+pod 'IOSKit'
+
+end
+```
 
 ## AutoLayout
 ```
@@ -14,40 +26,33 @@ let _status = LayoutUtils.addButton(parent: _content);
 _status.top(c: 20).leading(c: 20).trailing(c: -20).bottom(c: -20).build();
 ```
 
-## StatusLayout
+## JStatusLayout
 ```
-var statusLayout:StatusLayout!;
+var statusLayout:JStatusLayout!;
 
 override func initView() {
-    ...
-    statusLayout = StatusLayout(parent:rootView, success: successView, target: self, errorAction: #selector(retry));
+...
+statusLayout = JStatusLayout(parent:rootView, success: successView, target: self, errorAction: #selector(retry));
 }
 
 @objc func retry() {
-    statusLayout.showLoading();
+statusLayout.showLoading();
 
-    TimeUtils.delay(after: 3) {
-        self.statusLayout.hide();
-    }
+TimeUtils.delay(after: 3) {
+self.statusLayout.hide();
+}
 }
 ```
 
 ## Utils
-### ColorUtils
-### LayoutUtils
-### NetUtils
-### StringUtils
-### TimeUtils
-### ViewUtils
+- ColorUtils
+- LayoutUtils
+- NetUtils
+- StringUtils
+- TimeUtils
+- ViewUtils
+- SmsUtils
+- ToastUtils
 
-## CocoaPods
-```
-platform :ios, '8.0'
-use_frameworks!
 
-target 'MyApp' do
-pod 'IOSKit'
-
-end
-```
 

@@ -1,15 +1,15 @@
 //
-//  StatusView.swift
-//  SwiftyKit
+//  JStatusLayout.swift
+//  IOSKit
 //
-//  Created by javar on 2018/9/22.
+//  Created by javar on 2018/10/19.
 //  Copyright © 2018年 da0ke. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-public enum StatusLayoutEnum : Int {
+public enum JStatusLayoutEnum : Int {
     
     case hide = 0
     case loading = 1
@@ -18,7 +18,7 @@ public enum StatusLayoutEnum : Int {
     
 }
 
-public class StatusLayout {
+public class JStatusLayout {
     
     private var statusView:UIView!;
     
@@ -29,7 +29,7 @@ public class StatusLayout {
     private var _emptyMsg:UILabel!;
     private var _errorMsg:UILabel!;
     
-    private var currentStatus:StatusLayoutEnum!;
+    private var currentStatus:JStatusLayoutEnum!;
     
     public required init(parent:UIView, success:UIView, target:Any?, errorAction:Selector?) {
         statusView = LayoutUtils.addView(parent: parent);
@@ -40,8 +40,8 @@ public class StatusLayout {
         initLoadingView();
         initEmptyView();
         initErrorView(target: target, errorAction: errorAction);
-
-        self.currentStatus = StatusLayoutEnum.hide;
+        
+        self.currentStatus = JStatusLayoutEnum.hide;
         showAndHide(statusCode: currentStatus);
     }
     
@@ -100,12 +100,12 @@ public class StatusLayout {
     }
     
     public func showLoading() {
-        currentStatus = StatusLayoutEnum.loading;
+        currentStatus = JStatusLayoutEnum.loading;
         showAndHide(statusCode: currentStatus);
     }
     
     public func showEmpty() {
-        currentStatus = StatusLayoutEnum.empty;
+        currentStatus = JStatusLayoutEnum.empty;
         showAndHide(statusCode: currentStatus);
     }
     
@@ -115,7 +115,7 @@ public class StatusLayout {
     }
     
     public func showError() {
-        currentStatus = StatusLayoutEnum.error;
+        currentStatus = JStatusLayoutEnum.error;
         showAndHide(statusCode: currentStatus);
     }
     
@@ -125,19 +125,19 @@ public class StatusLayout {
     }
     
     public func hide() {
-        currentStatus = StatusLayoutEnum.hide;
+        currentStatus = JStatusLayoutEnum.hide;
         showAndHide(statusCode: currentStatus);
     }
     
-    private func showAndHide(statusCode:StatusLayoutEnum) {
-        loadingView.isHidden = (statusCode != StatusLayoutEnum.loading);
-        emptyView.isHidden = (statusCode != StatusLayoutEnum.empty);
-        errorView.isHidden = (statusCode != StatusLayoutEnum.error);
-        statusView.isHidden = (statusCode == StatusLayoutEnum.hide);
+    private func showAndHide(statusCode:JStatusLayoutEnum) {
+        loadingView.isHidden = (statusCode != JStatusLayoutEnum.loading);
+        emptyView.isHidden = (statusCode != JStatusLayoutEnum.empty);
+        errorView.isHidden = (statusCode != JStatusLayoutEnum.error);
+        statusView.isHidden = (statusCode == JStatusLayoutEnum.hide);
     }
     
     public func isLoading() -> Bool {
-        if(currentStatus == StatusLayoutEnum.loading) {
+        if(currentStatus == JStatusLayoutEnum.loading) {
             return true;
         } else {
             return false;

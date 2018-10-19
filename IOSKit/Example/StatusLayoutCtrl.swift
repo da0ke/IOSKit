@@ -11,7 +11,7 @@ import UIKit
 
 class StatusLayoutCtrl : BaseCtrl {
     
-    var statusLayout:StatusLayout!;
+    var statusLayout:JStatusLayout!;
     
     
     override func initView() {
@@ -48,7 +48,7 @@ class StatusLayoutCtrl : BaseCtrl {
         successMsg.font = UIFont.systemFont(ofSize: 20);
 
         
-        statusLayout = StatusLayout(parent:rootView, success: successView, target: self, errorAction: #selector(retry));
+        statusLayout = JStatusLayout(parent:rootView, success: successView, target: self, errorAction: #selector(retry));
         
 
     }
