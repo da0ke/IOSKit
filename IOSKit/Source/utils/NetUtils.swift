@@ -55,4 +55,37 @@ public class NetUtils {
         }
     }
     
+    public static func upload(URLString : String, parameters : [String : String], images:[String : Data], successed :  @escaping (_ result : Any) -> (),failed:@escaping (_ error:Error) -> ()) {
+        
+        Alamofire.upload(
+            multipartFormData: { multipartFormData in
+                for (key, value) in images {
+                    multipartFormData.append(value, withName: key, fileName: "\(TimeUtils.millisSeconds()).png", mimeType: "image/png")
+                }
+                
+                for (key, value) in parameters {
+                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key);
+                }
+        },
+            to: URLString,
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON { response in
+                        
+                        guard let result = response.result.value else {
+                            failed(response.result.error!);
+                            return
+                        }
+                        
+                        successed(result);
+                    }
+                case .failure(let encodingError):
+                    failed(encodingError);
+                }
+        }
+        )
+        
+    }
+    
 }

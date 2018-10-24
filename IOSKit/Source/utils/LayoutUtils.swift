@@ -174,6 +174,99 @@ public class LayoutUtils {
         return navBar;
     }
     
+    public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, search:String, searchAction:Selector?, right:UIImage, rightColor:UIColor, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+
+        let navItem = UINavigationItem();
+        navItem.leftBarButtonItem = createBack(color: backColor_default, target: target, action: leftAction);
+        navItem.rightBarButtonItem = createBarButtonItem(image: right, color: rightColor, target: target, action: rightAction);
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-88, height: 44));
+        navItem.titleView = titleView;
+        
+        let search_view = LayoutUtils.addView(parent: titleView);
+        search_view.height(c: 30).centerY(c: 0).leading(c: 8).trailing(c: -8).build();
+        search_view.backgroundColor = ColorUtils.cF6F6F6;
+        search_view.layer.cornerRadius = 5;
+        search_view.addTap(target: self, action: searchAction);
+        
+        let search_label = LayoutUtils.addLabel(parent: search_view);
+        search_label.centerY(c: 0).centerX(v: search_view, c: 9).build();
+        search_label.text = search;
+        search_label.textColor = ColorUtils.cA6A6A6;
+        search_label.font = UIFont.systemFont(ofSize: 13);
+        
+        let search_ic = LayoutUtils.addImageView(parent: search_view);
+        search_ic.width(c: 14).height(c: 14).centerY(c: 0).trailing(v: search_label, c: -4).build();
+        search_ic.image = BundleUtils.getImage(name: "search");
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, search:String, searchAction:Selector?, right:String, rightColor:UIColor, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.leftBarButtonItem = createBack(color: backColor_default, target: target, action: leftAction);
+        navItem.rightBarButtonItem = createBarButtonItem(text: right, color: UIColor.darkGray, target: target, action: rightAction);
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-88, height: 44));
+        navItem.titleView = titleView;
+        
+        let search_view = LayoutUtils.addView(parent: titleView);
+        search_view.height(c: 30).centerY(c: 0).leading(c: 8).trailing(c: -8).build();
+        search_view.backgroundColor = ColorUtils.cF6F6F6;
+        search_view.layer.cornerRadius = 5;
+        search_view.addTap(target: self, action: searchAction);
+        
+        let search_label = LayoutUtils.addLabel(parent: search_view);
+        search_label.centerY(c: 0).centerX(v: search_view, c: 9).build();
+        search_label.text = search;
+        search_label.textColor = ColorUtils.cA6A6A6;
+        search_label.font = UIFont.systemFont(ofSize: 13);
+        
+        let search_ic = LayoutUtils.addImageView(parent: search_view);
+        search_ic.width(c: 14).height(c: 14).centerY(c: 0).trailing(v: search_label, c: -4).build();
+        search_ic.image = BundleUtils.getImage(name: "search");
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, search:String, searchAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.leftBarButtonItem = createBack(color: backColor_default, target: target, action: leftAction);
+        
+        let titleView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-88, height: 44));
+        navItem.titleView = titleView;
+        
+        let search_view = LayoutUtils.addView(parent: titleView);
+        search_view.height(c: 30).centerY(c: 0).leading(c: 8).trailing(c: -8).build();
+        search_view.backgroundColor = ColorUtils.cF6F6F6;
+        search_view.layer.cornerRadius = 5;
+        search_view.addTap(target: self, action: searchAction);
+        
+        let search_label = LayoutUtils.addLabel(parent: search_view);
+        search_label.centerY(c: 0).centerX(v: search_view, c: 9).build();
+        search_label.text = search;
+        search_label.textColor = ColorUtils.cA6A6A6;
+        search_label.font = UIFont.systemFont(ofSize: 13);
+        
+        let search_ic = LayoutUtils.addImageView(parent: search_view);
+        search_ic.width(c: 14).height(c: 14).centerY(c: 0).trailing(v: search_label, c: -4).build();
+        search_ic.image = BundleUtils.getImage(name: "search");
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    
     
     private static func createBack(color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem  {
         return createBarButtonItem(image: BundleUtils.getImage(name: "nav_back")!, color: color, target: target, action: action);

@@ -32,6 +32,7 @@ public class ColorUtils {
     public static let c668ABC = UIColor(red: 102/255, green: 138/255, blue: 188/255, alpha: 1);
     public static let c779ACC = UIColor(red: 119/255, green: 154/255, blue: 204/255, alpha: 1);
     public static let c808080 = UIColor(red: 128/255, green: 128/255, blue: 128/255, alpha: 1);
+    public static let cA6A6A6 = UIColor(red: 166/255, green: 166/255, blue: 166/255, alpha: 1);
     public static let cE4A73D = UIColor(red: 228/255, green: 167/255, blue: 61/255, alpha: 1);
     public static let cF2F2F2 = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 1);
     public static let cF6F6F6 = UIColor(red: 246/255, green: 246/255, blue: 246/255, alpha: 1);

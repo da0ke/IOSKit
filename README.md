@@ -44,15 +44,33 @@ self.statusLayout.hide();
 }
 ```
 
+## NetUtils
+``` NetUtils.request(...) ```
+``` NetUtils.upload(...) ```
+
+## LayoutUtils
+``` 
+LayoutUtils.addView(parent:UIView) 
+LayoutUtils.addLabel(parent:UIView)
+LayoutUtils.addTextField(parent:UIView)
+    ... ...
+    
+LayoutUtils.layout_root(...)    
+LayoutUtils.layout_nav(...)
+```
+
+## ToastUtils
+```
+ToastUtils.showProgress()
+ToastUtils.hideProgress()
+ToastUtils.showMsg(msg:String)
+```
+
 ## Utils
 - ColorUtils
-- LayoutUtils
-- NetUtils
 - StringUtils
 - TimeUtils
-- ViewUtils
 - SmsUtils
-- ToastUtils
 
 
 
