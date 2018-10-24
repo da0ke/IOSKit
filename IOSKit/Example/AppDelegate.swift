@@ -22,6 +22,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = rootCtrl;
         self.window?.makeKeyAndVisible();
         
+        // 用于本地测试
+        LayoutUtils.isBundle = false;
+        
         return true
     }
 

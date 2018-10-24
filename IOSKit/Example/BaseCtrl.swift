@@ -25,5 +25,9 @@ class BaseCtrl : UIViewController {
         
     }
     
+    @objc func goBack() {
+        
+    }
+    
     
 }

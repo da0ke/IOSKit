@@ -12,9 +12,18 @@ import UIKit
 class BundleUtils {
     
     public static func getImage(name:String) -> UIImage? {
-        let bundlePath = Bundle(for: BundleUtils.self).path(forResource: "IOSKit", ofType: "bundle");
-        let bundle = Bundle(path: bundlePath!);
-        return UIImage(named: name, in: bundle, compatibleWith: nil);
+        return getImage(name: name, bundle: true);
     }
+    
+    public static func getImage(name:String, bundle:Bool) -> UIImage? {
+        if(bundle) {
+            let bundlePath = Bundle(for: BundleUtils.self).path(forResource: "IOSKit", ofType: "bundle");
+            let bundle = Bundle(path: bundlePath!);
+            return UIImage(named: name, in: bundle, compatibleWith: nil);
+        } else {
+            return UIImage(named: name);
+        }
+    }
+    
     
 }
