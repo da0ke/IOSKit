@@ -30,6 +30,14 @@ public class LayoutUtils {
         return view;
     }
     
+    public static func addLabel(parent:UIView, fontSize:CGFloat, color:UIColor) -> UILabel {
+        let view = addLabel(parent: parent);
+        view.font = UIFont.systemFont(ofSize: fontSize);
+        view.textColor = color;
+        
+        return view;
+    }
+    
     public static func addTextField(parent:UIView) -> UITextField {
         let view = UITextField();
         parent.addSubview(view);
@@ -121,9 +129,64 @@ public class LayoutUtils {
         return rootView;
     }
     
+    public static func layout_content(_scroll:UIScrollView) -> UIView {
+        return layout_content(_scroll: _scroll, vertical: true);
+    }
+    
+    public static func layout_content(_scroll:UIScrollView, vertical:Bool) -> UIView {
+        let _content = LayoutUtils.addView(parent: _scroll);
+        if(vertical) { // 垂直方向滚动
+            if #available(iOS 11.0, *) {
+                _content.top(v: _scroll.contentLayoutGuide, c: 0)
+                    .leading(v: _scroll.contentLayoutGuide, c: 0)
+                    .trailing(v: _scroll.contentLayoutGuide, c: 0)
+                    .bottom(v: _scroll.contentLayoutGuide, c: 0)
+                    .width(v: _scroll, c: 0)
+                    .build();
+            } else {
+                _content.top(c: 0)
+                    .leading(c: 0)
+                    .trailing(c: 0)
+                    .bottom(c: 0)
+                    .width(v: _scroll, c: 0)
+                    .build();
+            };
+            
+        } else { // 水平方向滚动
+            if #available(iOS 11.0, *) {
+                _content.top(v: _scroll.contentLayoutGuide, c: 0)
+                    .leading(v: _scroll.contentLayoutGuide, c: 0)
+                    .trailing(v: _scroll.contentLayoutGuide, c: 0)
+                    .bottom(v: _scroll.contentLayoutGuide, c: 0)
+                    .height(v: _scroll, c: 0)
+                    .build();
+            } else {
+                _content.top(c: 0)
+                    .leading(c: 0)
+                    .trailing(c: 0)
+                    .bottom(c: 0)
+                    .height(v: _scroll, c: 0)
+                    .build();
+            };
+        }
+        
+        return _content;
+    }
+    
     /* ------------------  nav start  ------------------  */
     
     private static let backColor_default = ColorUtils.c343434;
+    
+    public static func layout_nav(_parent:UIView, title:String) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
     
     public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, title:String) -> UINavigationBar {
         let navBar = createNavBar(_parent:_parent);
