@@ -19,18 +19,42 @@ class LayoutUtilsCtrl : BaseCtrl {
         
         let _content = LayoutUtils.layout_content(_scroll: _scroll);
         
-        let navBar = LayoutUtils.layout_nav(_parent: _content, target: self, leftAction: #selector(goBack), search: "请输入职位或企业名称", searchAction: #selector(clickSearch), right: UIImage(named: "example_share")!, rightColor: ColorUtils.c777, rightAction: #selector(doShare))
-        navBar.bottom(c: -20).build();
+        let nav1 = LayoutUtils.addView(parent: _content);
+        nav1.height(c: 50).top(c: 10).leading(c: 0).trailing(c: 0).build();
+        _ = LayoutUtils.layout_nav(_parent: nav1, target: self,
+                                   left: "返回", leftColor: UIColor.blue, leftAction: #selector(click),
+                                   title: "标题",
+                                   right: "分享", rightColor: UIColor.orange, rightAction: #selector(click));
+        
+        let nav2 = LayoutUtils.addView(parent: _content);
+        nav2.height(c: 50).top(v: nav1, c: 10).leading(c: 0).trailing(c: 0).build();
+        _ = LayoutUtils.layout_nav(_parent: nav2, target: self,
+                                   left: "返回", leftColor: UIColor.blue, leftAction: #selector(click),
+                                   title: "标题",
+                                   right: UIImage(named: "example_share")!, rightColor: UIColor.orange, rightAction: #selector(click));
+        
+        let nav3 = LayoutUtils.addView(parent: _content);
+        nav3.height(c: 50).top(v: nav2, c: 10).leading(c: 0).trailing(c: 0).build();
+        _ = LayoutUtils.layout_nav(_parent: nav3, target: self,
+                                   left: UIImage(named: "example_back")!, leftColor: UIColor.blue, leftAction: #selector(click),
+                                   title: "标题",
+                                   right: UIImage(named: "example_share")!, rightColor: UIColor.orange, rightAction: #selector(click));
         
         
+        let nav4 = LayoutUtils.addView(parent: _content);
+        nav4.height(c: 50).top(v: nav3, c: 10).leading(c: 0).trailing(c: 0).build();
+        _ = LayoutUtils.layout_nav(_parent: nav4, target: self,
+                                   left: UIImage(named: "example_back")!, leftColor:UIColor.blue, leftAction: #selector(click),
+                                   search: "请输入关键字", searchAction: #selector(click),
+                                   right: UIImage(named: "example_share")!, rightColor: UIColor.orange, rightAction: #selector(click))
+
+        
+        
+        _content.subviews.last?.bottom(c: -20).build();
     }
     
-    @objc func clickSearch() {
-        ToastUtils.showMsg(msg: "click search")
-    }
-    
-    @objc func doShare() {
-        ToastUtils.showMsg(msg: "click share")
+    @objc private func click() {
+        ToastUtils.showMsg(msg: "click!")
     }
 
     

@@ -177,16 +177,7 @@ public class LayoutUtils {
     
     private static let backColor_default = ColorUtils.c343434;
     
-    public static func layout_nav(_parent:UIView, title:String) -> UINavigationBar {
-        let navBar = createNavBar(_parent:_parent);
-        
-        let navItem = UINavigationItem();
-        navItem.title = title;
-        
-        navBar.pushItem(navItem, animated: true);
-        
-        return navBar;
-    }
+    
     
     public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, title:String) -> UINavigationBar {
         let navBar = createNavBar(_parent:_parent);
@@ -346,18 +337,300 @@ public class LayoutUtils {
         return navBar;
     }
     
-    private static func createBarButtonItem(image:UIImage, color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem {
-        let barButtonItem = UIBarButtonItem(image: image.withRenderingMode(.alwaysTemplate), style: .plain, target: target, action: action);
-        barButtonItem.tintColor = color;
-        return barButtonItem;
+    private static func createBarButtonItem(image:UIImage, color:UIColor?, target:Any?, action:Selector?) -> UIBarButtonItem {
+        if(color != nil) {
+            let barButtonItem = UIBarButtonItem(image: image.withRenderingMode(.alwaysTemplate), style: .plain, target: target, action: action);
+            barButtonItem.tintColor = color;
+            return barButtonItem;
+        } else {
+            let barButtonItem = UIBarButtonItem(image: image, style: .plain, target: target, action: action);
+            return barButtonItem;
+        }
     }
     
-    private static func createBarButtonItem(text:String, color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem {
+    private static func createBarButtonItem(text:String, color:UIColor?, target:Any?, action:Selector?) -> UIBarButtonItem {
         let barButtonItem = UIBarButtonItem(title: text, style: .plain, target: target, action: action);
         barButtonItem.tintColor = color;
         return barButtonItem;
     }
     
+    public static func layout_nav(_parent:UIView, title:String) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    public static func layout_nav(_parent:UIView, target:Any?, left:String, leftColor:UIColor, leftAction:Selector?, title:String) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        navItem.leftBarButtonItem = createBarButtonItem(text: left, color: leftColor, target: target, action: leftAction);
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    public static func layout_nav(_parent:UIView, target:Any?, left:UIImage, leftColor:UIColor, leftAction:Selector?, title:String) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        navItem.leftBarButtonItem = createBarButtonItem(image: left, color: leftColor, target: target, action: leftAction);
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+
+    
+    // text-title-text
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:String, leftColor:UIColor?, leftAction:Selector?,
+                                  title:String,
+                                  right:String, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        if(!left.isEmpty) {
+            navItem.leftBarButtonItem = createBarButtonItem(text: left, color: leftColor, target: target, action: leftAction);
+        }
+        if(!right.isEmpty) {
+            navItem.rightBarButtonItem = createBarButtonItem(text: right, color: rightColor, target: target, action: rightAction);
+        }
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    // text-title-image
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:String, leftColor:UIColor?, leftAction:Selector?,
+                                  title:String,
+                                  right:UIImage?, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        if(!left.isEmpty) {
+            navItem.leftBarButtonItem = createBarButtonItem(text: left, color: leftColor, target: target, action: leftAction);
+        }
+        if(right != nil) {
+            navItem.rightBarButtonItem = createBarButtonItem(image: right!, color: rightColor, target: target, action: rightAction);
+        }
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    // image-title-text
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:UIImage?, leftColor:UIColor?, leftAction:Selector?,
+                                  title:String,
+                                  right: String, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        if(left != nil) {
+            navItem.leftBarButtonItem = createBarButtonItem(image: left!, color: leftColor, target: target, action: leftAction);
+        }
+        if(!right.isEmpty) {
+            navItem.rightBarButtonItem = createBarButtonItem(text: right, color: rightColor, target: target, action: rightAction);
+        }
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    // image-title-image
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:UIImage?, leftColor:UIColor?, leftAction:Selector?,
+                                  title:String,
+                                  right:UIImage?, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        if(left != nil) {
+            navItem.leftBarButtonItem = createBarButtonItem(image: left!, color: leftColor, target: target, action: leftAction);
+        }
+        if(right != nil) {
+            navItem.rightBarButtonItem = createBarButtonItem(image: right!, color: rightColor, target: target, action: rightAction);
+        }
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    // empty
+    public static func layout_nav(_parent:UIView) -> UINavigationBar {
+        return layout_nav(_parent: _parent, target: nil, left: "", leftColor: nil, leftAction: nil, title: "", right: "", rightColor: nil, rightAction: nil);
+    }
+    
+    // title
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  title:String) -> UINavigationBar {
+        return layout_nav(_parent: _parent, target: target, left: "", leftColor: nil, leftAction: nil, title: title, right: "", rightColor: nil, rightAction: nil);
+    }
+    
+    // left(text)
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:String, leftColor:UIColor?, leftAction:Selector?) -> UINavigationBar {
+        return layout_nav(_parent: _parent, target: target, left: left, leftColor: leftColor, leftAction: leftAction, title: "", right: "", rightColor: nil, rightAction: nil);
+    }
+    
+    // left(image)
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:UIImage, leftColor:UIColor?, leftAction:Selector?) -> UINavigationBar {
+        return layout_nav(_parent: _parent, target: target, left: left, leftColor: leftColor, leftAction: leftAction, title: "", right: "", rightColor: nil, rightAction: nil);
+    }
+    
+    // right(text)
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  right: String, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        return layout_nav(_parent: _parent, target: target, left: "", leftColor: nil, leftAction: nil, title: "", right: right, rightColor: rightColor, rightAction: rightAction);
+    }
+    
+    // right(image)
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  right: UIImage, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        return layout_nav(_parent: _parent, target: target, left: "", leftColor: nil, leftAction: nil, title: "", right: right, rightColor: rightColor, rightAction: rightAction);
+    }
+
+    private static func createSearchView(search:String, target:Any?, searchAction:Selector?) -> UIView {
+        let titleView = CustomNavTitleView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width-88, height: 44));
+        
+        let search_view = LayoutUtils.addView(parent: titleView);
+        search_view.height(c: 30).centerY(c: 0).leading(c: 8).trailing(c: -8).build();
+        search_view.backgroundColor = ColorUtils.cF6F6F6;
+        search_view.layer.cornerRadius = 5;
+        search_view.addTap(target: target, action: searchAction);
+        
+        let search_label = LayoutUtils.addLabel(parent: search_view);
+        search_label.centerY(c: 0).centerX(v: search_view, c: 9).build();
+        search_label.text = search;
+        search_label.textColor = ColorUtils.cA6A6A6;
+        search_label.font = UIFont.systemFont(ofSize: 13);
+        
+        let search_ic = LayoutUtils.addImageView(parent: search_view);
+        search_ic.width(c: 14).height(c: 14).centerY(c: 0).trailing(v: search_label, c: -4).build();
+        search_ic.image = BundleUtils.getImage(name: "search", bundle: isBundle);
+        
+        return titleView;
+    }
+    
+    // text-search-text
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:String, leftColor:UIColor?, leftAction:Selector?,
+                                  search:String, searchAction:Selector?,
+                                  right:String, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        
+        let navItem = UINavigationItem();
+        if(!left.isEmpty) {
+            navItem.leftBarButtonItem = createBarButtonItem(text: left, color: leftColor, target: target, action: leftAction);
+        }
+        if(!right.isEmpty) {
+            navItem.rightBarButtonItem = createBarButtonItem(text: right, color: rightColor, target: target, action: rightAction);
+        }
+  
+        let titleView = createSearchView(search: search, target: target, searchAction: searchAction);
+        navItem.titleView = titleView;
+
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    // text-search-image
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:String, leftColor:UIColor?, leftAction:Selector?,
+                                  search:String, searchAction:Selector?,
+                                  right:UIImage?, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        if(!left.isEmpty) {
+            navItem.leftBarButtonItem = createBarButtonItem(text: left, color: leftColor, target: target, action: leftAction);
+        }
+        if(right != nil) {
+            navItem.rightBarButtonItem = createBarButtonItem(image: right!, color: rightColor, target: target, action: rightAction);
+        }
+        
+        let titleView = createSearchView(search: search, target: target, searchAction: searchAction);
+        navItem.titleView = titleView;
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    // image-search-text
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:UIImage?, leftColor:UIColor?, leftAction:Selector?,
+                                  search:String, searchAction:Selector?,
+                                  right:String, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        if(left != nil) {
+            navItem.leftBarButtonItem = createBarButtonItem(image: left!, color: leftColor, target: target, action: leftAction);
+        }
+        if(!right.isEmpty) {
+            navItem.rightBarButtonItem = createBarButtonItem(text: right, color: rightColor, target: target, action: rightAction);
+        }
+        
+        let titleView = createSearchView(search: search, target: target, searchAction: searchAction);
+        navItem.titleView = titleView;
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    // image-search-image
+    public static func layout_nav(_parent:UIView, target:Any?,
+                                  left:UIImage?, leftColor:UIColor?, leftAction:Selector?,
+                                  search:String, searchAction:Selector?,
+                                  right:UIImage?, rightColor:UIColor?, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        if(left != nil) {
+            navItem.leftBarButtonItem = createBarButtonItem(image: left!, color: leftColor, target: target, action: leftAction);
+        }
+        if(right != nil) {
+            navItem.rightBarButtonItem = createBarButtonItem(image: right!, color: rightColor, target: target, action: rightAction);
+        }
+        
+        let titleView = createSearchView(search: search, target: target, searchAction: searchAction);
+        navItem.titleView = titleView;
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    
+    
+
     /* ------------------  nav end  ------------------  */
 
+    
+    
+    
+    
 }
