@@ -204,6 +204,19 @@ public class LayoutUtils {
         return navBar;
     }
     
+    public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, title:String, right:String, rightColor:UIColor, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        navItem.leftBarButtonItem = createBack(color: backColor_default, target: target, action: leftAction);
+        navItem.rightBarButtonItem = createBarButtonItem(text: right, color: rightColor, target: target, action: rightAction);
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
     public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, title:String, right:UIImage, rightColor:UIColor, rightAction:Selector?) -> UINavigationBar {
         let navBar = createNavBar(_parent:_parent);
         
@@ -325,9 +338,7 @@ public class LayoutUtils {
     
     
     
-    private static func createBack(color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem  {
-        return createBarButtonItem(image: BundleUtils.getImage(name: "nav_back", bundle: isBundle)!, color: color, target: target, action: action);
-    }
+    
     
     private static func createNavBar(_parent:UIView) -> UINavigationBar {
         let navBar = addNavBar(parent: _parent);
@@ -352,6 +363,10 @@ public class LayoutUtils {
         let barButtonItem = UIBarButtonItem(title: text, style: .plain, target: target, action: action);
         barButtonItem.tintColor = color;
         return barButtonItem;
+    }
+    
+    private static func createBack(color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem  {
+        return createBarButtonItem(image: BundleUtils.getImage(name: "nav_back", bundle: isBundle)!, color: color, target: target, action: action);
     }
     
     public static func layout_nav(_parent:UIView, title:String) -> UINavigationBar {
@@ -388,6 +403,10 @@ public class LayoutUtils {
         
         return navBar;
     }
+    
+    
+    
+    
 
     
     // text-title-text
