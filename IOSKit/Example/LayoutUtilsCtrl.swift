@@ -53,7 +53,9 @@ class LayoutUtilsCtrl : BaseCtrl {
         nav5.height(c: 50).top(v: nav4, c: 10).leading(c: 0).trailing(c: 0).build();
         _ = LayoutUtils.layout_nav(_parent: nav5, target: self, leftAction: #selector(click), title: "设置");
         
-        
+        let nav6 = LayoutUtils.addView(parent: _content);
+        nav6.height(c: 50).top(v: nav5, c: 10).leading(c: 0).trailing(c: 0).build();
+        _ = LayoutUtils.layout_nav(_parent: nav6, bgColor: ColorUtils.c668ABC, target: self, leftAction: #selector(click), title: "标题", right: UIImage(named: "example_share")!, rightAction: #selector(click));
         
         _content.subviews.last?.bottom(c: -20).build();
     }

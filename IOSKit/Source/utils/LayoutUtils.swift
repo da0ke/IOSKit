@@ -244,6 +244,28 @@ public class LayoutUtils {
         return navBar;
     }
     
+    public static func layout_nav(_parent:UIView, bgColor:UIColor, target:Any?, leftAction:Selector?, title:String, right:UIImage, rightColor:UIColor, rightAction:Selector?) -> UINavigationBar {
+        let navBar = createNavBar(_parent:_parent);
+        navBar.barTintColor = bgColor;
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white];
+        
+        let navItem = UINavigationItem();
+        navItem.title = title;
+        navItem.leftBarButtonItem = createBack(color: UIColor.white, target: target, action: leftAction);
+        navItem.rightBarButtonItem = createBarButtonItem(image: right, color: rightColor, target: target, action: rightAction);
+        
+        navBar.pushItem(navItem, animated: true);
+        
+        return navBar;
+    }
+    
+    public static func layout_nav(_parent:UIView, bgColor:UIColor, target:Any?, leftAction:Selector?, title:String, right:UIImage, rightAction:Selector?) -> UINavigationBar {
+       
+        return layout_nav(_parent: _parent, bgColor: bgColor, target: target, leftAction: leftAction, title: title, right: right, rightColor: UIColor.white, rightAction: rightAction);
+    }
+    
+    
+    
     public static func layout_nav(_parent:UIView, target:Any?, leftAction:Selector?, search:String, searchAction:Selector?, right:UIImage, rightColor:UIColor, rightAction:Selector?) -> UINavigationBar {
         let navBar = createNavBar(_parent:_parent);
 
