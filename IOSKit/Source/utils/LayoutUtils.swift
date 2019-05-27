@@ -11,8 +11,10 @@ import UIKit
 
 public class LayoutUtils {
     
+    
     //设置为false，主要用于方便本地测试
     public static var isBundle = true;
+    
 
     public static func addView(parent:UIView) -> UIView {
         let view = UIView();
@@ -388,7 +390,7 @@ public class LayoutUtils {
     }
     
     private static func createBack(color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem  {
-        return createBarButtonItem(image: BundleUtils.getImage(name: "nav_back3", bundle: isBundle)!, color: color, target: target, action: action);
+        return createBarButtonItem(image: BundleUtils.getImage(name: "nav_back", bundle: isBundle)!, color: color, target: target, action: action);
     }
     
     public static func layout_nav(_parent:UIView, title:String) -> UINavigationBar {

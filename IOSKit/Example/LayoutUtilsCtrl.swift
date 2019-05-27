@@ -36,7 +36,7 @@ class LayoutUtilsCtrl : BaseCtrl {
         let nav3 = LayoutUtils.addView(parent: _content);
         nav3.height(c: 50).top(v: nav2, c: 10).leading(c: 0).trailing(c: 0).build();
         _ = LayoutUtils.layout_nav(_parent: nav3, target: self,
-                                   left: UIImage(named: "example_back")!, leftColor: UIColor.blue, leftAction: #selector(click),
+                                   left: BundleUtils.getImage(name: "nav_back", bundle: LayoutUtils.isBundle), leftColor: UIColor.blue, leftAction: #selector(click),
                                    title: "标题",
                                    right: UIImage(named: "example_share")!, rightColor: UIColor.orange, rightAction: #selector(click));
         
@@ -44,7 +44,7 @@ class LayoutUtilsCtrl : BaseCtrl {
         let nav4 = LayoutUtils.addView(parent: _content);
         nav4.height(c: 50).top(v: nav3, c: 10).leading(c: 0).trailing(c: 0).build();
         _ = LayoutUtils.layout_nav(_parent: nav4, target: self,
-                                   left: UIImage(named: "example_back")!, leftColor:UIColor.blue, leftAction: #selector(click),
+                                   left: BundleUtils.getImage(name: "nav_back", bundle: LayoutUtils.isBundle), leftColor:UIColor.blue, leftAction: #selector(click),
                                    search: "请输入关键字", searchAction: #selector(click),
                                    right: UIImage(named: "example_share")!, rightColor: UIColor.orange, rightAction: #selector(click))
 
