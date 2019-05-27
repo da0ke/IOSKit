@@ -388,7 +388,7 @@ public class LayoutUtils {
     }
     
     private static func createBack(color:UIColor, target:Any?, action:Selector?) -> UIBarButtonItem  {
-        return createBarButtonItem(image: BundleUtils.getImage(name: "nav_back2", bundle: isBundle)!, color: color, target: target, action: action);
+        return createBarButtonItem(image: BundleUtils.getImage(name: "nav_back3", bundle: isBundle)!, color: color, target: target, action: action);
     }
     
     public static func layout_nav(_parent:UIView, title:String) -> UINavigationBar {
