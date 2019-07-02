@@ -7,15 +7,15 @@ target 'IOSKit' do
 
 # 网络框架
 # https://github.com/Alamofire/Alamofire
-pod 'Alamofire', '4.7.3'
+pod 'Alamofire', '4.8.2'
 
 # json框架
 # https://github.com/SwiftyJSON/SwiftyJSON
-pod 'SwiftyJSON'
+pod 'SwiftyJSON', '5.0.0'
 
 # 加密算法，比如md5
 # https://github.com/krzyzanowskim/CryptoSwift
-pod 'CryptoSwift'
+pod 'CryptoSwift', '1.0.0'
 
 
 end
