@@ -26,6 +26,18 @@ let _status = LayoutUtils.addButton(parent: _content);
 _status.top(c: 20).leading(c: 20).trailing(c: -20).bottom(c: -20).build();
 ```
 
+## NetUtils
+``` NetUtils.get(...) ```
+``` NetUtils.post(...) ```
+``` NetUtils.upload(...) ```
+
+## EncryptUtils
+``` 
+let md5Str = EncryptUtils.md5(str: "some thing");
+print(md5Str);//35290446ab01e3fc9ec7837f0bf84e40
+```
+
+
 ## JStatusLayout
 ```
 var statusLayout:JStatusLayout!;
@@ -42,21 +54,6 @@ TimeUtils.delay(after: 3) {
 self.statusLayout.hide();
 }
 }
-```
-
-## NetUtils
-``` NetUtils.request(...) ```
-``` NetUtils.upload(...) ```
-
-## LayoutUtils
-``` 
-LayoutUtils.addView(parent:UIView) 
-LayoutUtils.addLabel(parent:UIView)
-LayoutUtils.addTextField(parent:UIView)
-    ... ...
-    
-LayoutUtils.layout_root(...)    
-LayoutUtils.layout_nav(...)
 ```
 
 ## ToastUtils
