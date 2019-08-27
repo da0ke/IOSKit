@@ -68,6 +68,6 @@ ToastUtils.showMsg(msg:String)
 - StringUtils
 - TimeUtils
 - SmsUtils
-
+- RegexUtils
 
 

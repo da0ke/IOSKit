@@ -25,7 +25,10 @@ class ViewController: BaseCtrl {
         _status.top(v: _select, c: 10).leading(c: 20).trailing(c: -20).build();
         
         let _layout = createButton(_parent: _content, title: "LayoutUtils", selector: #selector(clickLayout));
-        _layout.top(v: _status, c: 10).leading(c: 20).trailing(c: -20).bottom(c: -10).build();
+        _layout.top(v: _status, c: 10).leading(c: 20).trailing(c: -20).build();
+        
+        let _regex = createButton(_parent: _content, title: "RegexUtils", selector: #selector(clickRegex));
+        _regex.top(v: _layout, c: 10).leading(c: 20).trailing(c: -20).bottom(c: -10).build();
         
     }
     
@@ -51,6 +54,9 @@ class ViewController: BaseCtrl {
         navigationController?.pushViewController(LayoutUtilsCtrl(), animated: true);
     }
 
+    @objc func clickRegex() {
+        navigationController?.pushViewController(RegexCtrl(), animated: true);
+    }
 
 }
 
