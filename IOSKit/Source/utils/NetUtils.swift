@@ -6,6 +6,7 @@
 //  Copyright © 2018年 da0ke. All rights reserved.
 //
 
+import UIKit
 import Foundation
 import Alamofire
 
@@ -72,6 +73,18 @@ public class NetUtils {
         }
     }
     
+    public static func get(_ URLString : String, parameters : [String : Any]? = nil, headers: [String : String]? = nil, successed :  @escaping (_ result : Any) -> (),failed:@escaping (_ error:Error) -> ()) {
+        
+        Alamofire.request(URLString, method: HTTPMethod.get, parameters: parameters, headers: headers).responseJSON { (response) in
+            guard let result = response.result.value else {
+                failed(response.result.error!);
+                return
+            }
+
+            successed(result);
+        }
+    }
+    
     public static func post(_ URLString : String, parameters : [String : Any]? = nil, successed :  @escaping (_ result : Any) -> ()) {
         post(URLString, parameters: parameters, successed: successed) { _ in
             
@@ -80,6 +93,17 @@ public class NetUtils {
     
     public static func post(_ URLString : String, parameters : [String : Any]? = nil, successed :  @escaping (_ result : Any) -> (),failed:@escaping (_ error:Error) -> ()) {
         Alamofire.request(URLString, method: HTTPMethod.post, parameters: parameters).responseJSON { (response) in
+            guard let result = response.result.value else {
+                failed(response.result.error!);
+                return
+            }
+            
+            successed(result);
+        }
+    }
+    
+    public static func post(_ URLString : String, parameters : [String : Any]? = nil, headers: [String : String]? = nil, successed :  @escaping (_ result : Any) -> (),failed:@escaping (_ error:Error) -> ()) {
+        Alamofire.request(URLString, method: HTTPMethod.post, parameters: parameters, headers: headers).responseJSON { (response) in
             guard let result = response.result.value else {
                 failed(response.result.error!);
                 return
