@@ -20,7 +20,7 @@ public class RegexUtils {
     }
     
     public static func isMobile(str:String) -> Bool {
-        return isMatches(str: str, pattern: "^1[3456789][0-9]{9}$");
+        return isMatches(str: str, pattern: "^1[0-9]{10}$");
     }
     
     public static func isTel(str:String) -> Bool {
