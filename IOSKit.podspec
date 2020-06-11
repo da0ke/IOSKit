@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
 spec.name         = "IOSKit"
-spec.version      = "1.1.0"
+spec.version      = "1.2.0"
 spec.summary      = "ios开发工具包"
 
 # This description is used to generate tags and improve search results.
@@ -23,9 +23,7 @@ spec.source       = { :git => "https://github.com/da0ke/IOSKit.git", :tag => "#{
 spec.source_files  = "IOSKit/Source/**/*.swift"
 spec.ios.resource_bundle = { 'IOSKit' => 'IOSKit/Source/IOSKit.xcassets' }
 
-
 spec.dependency "Alamofire", "4.8.2"
-spec.dependency "SwiftyJSON", "5.0.0"
 spec.dependency "CryptoSwift", "1.0.0"
 
 end

@@ -11,7 +11,7 @@ pod 'Alamofire', '4.8.2'
 
 # json框架
 # https://github.com/SwiftyJSON/SwiftyJSON
-pod 'SwiftyJSON', '5.0.0'
+# pod 'SwiftyJSON', '5.0.0'
 
 # 加密算法，比如md5
 # https://github.com/krzyzanowskim/CryptoSwift
